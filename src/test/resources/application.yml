@@ -1,0 +1,24 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+app:
+  fx:
+    cache-ttl: PT30S
+    freshness-sla: PT5M
+    supported-pairs:
+      - EUR/USD
+      - USD/PLN
+    provider:
+      name: stub-provider
+      base-url: https://provider.example.internal
+      api-key: stub-key
+    kafka:
+      enabled: false
+      topic: fx-rate-events
+      consumer-group-id: test-group
+    scheduled-ingestion:
+      enabled: false
+      fixed-delay: PT60S
