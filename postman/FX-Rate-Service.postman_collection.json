@@ -1,0 +1,63 @@
+{
+  "info": {
+    "name": "FX Rate Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Postman collection for the Banking FX Rate Service"
+  },
+  "item": [
+    {
+      "name": "Run manual ingestion",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Admin-Api-Key",
+            "value": "{{adminApiKey}}",
+            "type": "text"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/fx-rates/admin/ingestions/run"
+      }
+    },
+    {
+      "name": "Get latest EUR/USD",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/v1/fx-rates/latest?base=EUR&quote=USD"
+      }
+    },
+    {
+      "name": "Get latest EUR/USD as of time",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/v1/fx-rates/latest-as-of?base=EUR&quote=USD&at=2026-03-15T12:00:00Z"
+      }
+    },
+    {
+      "name": "Get history EUR/USD",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/v1/fx-rates/history?base=EUR&quote=USD&from=2026-03-01T00:00:00Z&to=2026-03-31T23:59:59Z"
+      }
+    },
+    {
+      "name": "Actuator health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/actuator/health"
+      }
+    },
+    {
+      "name": "Prometheus metrics",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/actuator/prometheus"
+      }
+    }
+  ]
+}
